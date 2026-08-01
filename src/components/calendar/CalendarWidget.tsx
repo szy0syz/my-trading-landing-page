@@ -5,15 +5,9 @@ import type { AppData } from '../../types/trading';
 
 interface CalendarWidgetProps {
   dataPromise: Promise<AppData>;
-  scale?: number;
 }
 
-/** 核心数据渲染组件 (配合 React 19 use(promise)) */
-function CalendarWidgetInner({
-  dataPromise,
-}: {
-  dataPromise: Promise<AppData>;
-}) {
+function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
   const data = use(dataPromise);
 
   const now = new Date();
@@ -49,13 +43,9 @@ function CalendarWidgetInner({
   );
 }
 
-/** 加载骨架屏 */
 function CalendarWidgetSkeleton() {
   return (
-    <div
-      className="w-full max-w-4xl mx-auto rounded-2xl border border-slate-800 bg-[#0b1322]"
-      style={{ minHeight: 520 }}
-    >
+    <div className="w-full max-w-4xl mx-auto rounded-2xl border border-slate-800 bg-[#0b1322] h-130">
       <div className="flex items-center gap-2 px-5 py-3.5 border-b border-slate-800/80">
         <div className="flex gap-1.5">
           {[0, 1, 2].map((i) => (
@@ -76,19 +66,10 @@ function CalendarWidgetSkeleton() {
   );
 }
 
-/** 交易日历挂载组件（含 Suspense & CSS Zoom 适配） */
-export function CalendarWidget({
-  dataPromise,
-  scale = 1,
-}: CalendarWidgetProps) {
+export function CalendarWidget({ dataPromise }: CalendarWidgetProps) {
   return (
     <div className="relative z-10 w-full px-4">
-      <div
-        style={{
-          zoom: scale,
-          filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.65))',
-        }}
-      >
+      <div className="w-full max-w-4xl mx-auto drop-shadow-2xl">
         <Suspense fallback={<CalendarWidgetSkeleton />}>
           <CalendarWidgetInner dataPromise={dataPromise} />
         </Suspense>
