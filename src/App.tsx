@@ -21,7 +21,7 @@ export default function App() {
         }}
       />
 
-      <main className="relative z-2 min-h-dvh flex flex-col justify-start pt-6 sm:pt-4 pb-16 overflow-hidden">
+      <main className="relative z-2 min-h-dvh flex flex-col justify-start pt-6 sm:pt-4 pb-14 overflow-hidden">
         {/* 顶部半透明半圆形发散灯光 (Top Spotlight Beam) */}
         <div
           aria-hidden="true"
