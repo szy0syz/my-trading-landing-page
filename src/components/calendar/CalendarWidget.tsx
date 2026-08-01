@@ -20,6 +20,16 @@ function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
   const monthKey = `${year}-${String(month).padStart(2, '0')}`;
   const { dailyRecords, weeklySummaries } = records[monthKey] ?? EMPTY_MONTH_DATA;
 
+  const handleMonthChange = (nextYear: number, nextMonth: number) => {
+    const targetSummaries = monthlySummaries[nextYear] ?? [];
+    const hasData = targetSummaries.some(
+      (s) => s.month === nextMonth && s.pnl != null,
+    );
+    if (hasData) {
+      setDate({ year: nextYear, month: nextMonth });
+    }
+  };
+
   return (
     <TradingCalendar
       year={year}
@@ -35,7 +45,7 @@ function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
       sectionTitle="交易记录"
       currency="美元 (USD)"
       updateText="每日实时更新"
-      onMonthChange={(y, m) => setDate({ year: y, month: m })}
+      onMonthChange={handleMonthChange}
     />
   );
 }

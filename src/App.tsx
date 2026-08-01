@@ -4,17 +4,14 @@ import { ScrollingBackground } from './components/layout/ScrollingBackground';
 import { fetchData, prefetch } from './lib/dataFetcher';
 import type { AppData } from './types/trading';
 
-// 预热并读取数据
 prefetch('/data.json');
 const dataPromise = fetchData<AppData>('/data.json');
 
 export default function App() {
   return (
     <div className="min-h-dvh relative overflow-x-hidden bg-[#070e1a]">
-      {/* 滚动 SVG 背景 */}
       <ScrollingBackground />
 
-      {/* 渐变遮罩，聚焦中心 */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-1"
@@ -24,8 +21,7 @@ export default function App() {
         }}
       />
 
-      {/* 主界面：自然响应式布局 */}
-      <main className="relative z-2 min-h-dvh flex flex-col justify-center py-4 overflow-hidden">
+      <main className="relative z-2 min-h-dvh flex flex-col justify-start pt-6 sm:pt-4 pb-16 overflow-hidden">
         {/* 顶部半透明半圆形发散灯光 (Top Spotlight Beam) */}
         <div
           aria-hidden="true"
