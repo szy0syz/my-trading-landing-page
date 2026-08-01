@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * useViewportFit - 根据视窗宽高动态计算容器缩放比例 (CSS zoom)
@@ -14,7 +14,11 @@ export function useViewportFit(
     const compute = () => {
       const availW = window.innerWidth - 32;
       const availH = window.innerHeight - heroHeight - 12;
-      const calculatedScale = Math.min(1, availW / naturalWidth, availH / naturalHeight);
+      const calculatedScale = Math.min(
+        1,
+        availW / naturalWidth,
+        availH / naturalHeight,
+      );
       setScale(Math.max(0.35, calculatedScale));
     };
 

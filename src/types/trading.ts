@@ -1,8 +1,8 @@
 import type {
-  DailyRecord,
-  WeeklySummary,
-  MonthlySummary,
   AnnualSummary,
+  DailyRecord,
+  MonthlySummary,
+  WeeklySummary,
 } from 'react-trading-calendar';
 
 export type { DailyRecord, WeeklySummary, MonthlySummary, AnnualSummary };

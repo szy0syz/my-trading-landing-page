@@ -14,7 +14,7 @@
       { "month": 6, "pnl": 30150 },
       { "month": 7, "pnl": 100943 },
       { "month": 8, "pnl": 12580 },
-      { "month": 9,  "pnl": null },
+      { "month": 9, "pnl": null },
       { "month": 10, "pnl": null },
       { "month": 11, "pnl": null },
       { "month": 12, "pnl": null }
@@ -48,11 +48,11 @@
           { "date": "2026-01-30", "pnl": 5387 }
         ],
         "weeklySummaries": [
-          { "weekNumber": 1,  "pnl": 4650 },
-          { "weekNumber": 2,  "pnl": 14000 },
-          { "weekNumber": 3,  "pnl": 19300 },
-          { "weekNumber": 4,  "pnl": 16400 },
-          { "weekNumber": 5,  "pnl": 17387 }
+          { "weekNumber": 1, "pnl": 4650 },
+          { "weekNumber": 2, "pnl": 14000 },
+          { "weekNumber": 3, "pnl": 19300 },
+          { "weekNumber": 4, "pnl": 16400 },
+          { "weekNumber": 5, "pnl": 17387 }
         ]
       },
       "2026-02": {
@@ -78,10 +78,10 @@
           { "date": "2026-02-27", "pnl": 11300 }
         ],
         "weeklySummaries": [
-          { "weekNumber": 6,  "pnl": 17000 },
-          { "weekNumber": 7,  "pnl": 22400 },
-          { "weekNumber": 8,  "pnl": 9300 },
-          { "weekNumber": 9,  "pnl": 27000 }
+          { "weekNumber": 6, "pnl": 17000 },
+          { "weekNumber": 7, "pnl": 22400 },
+          { "weekNumber": 8, "pnl": 9300 },
+          { "weekNumber": 9, "pnl": 27000 }
         ]
       },
       "2026-03": {

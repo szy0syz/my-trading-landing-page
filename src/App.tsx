@@ -1,8 +1,8 @@
-import { ScrollingBackground } from './components/layout/ScrollingBackground';
-import { HeroSection } from './components/layout/HeroSection';
 import { CalendarWidget } from './components/calendar/CalendarWidget';
-import { fetchData, prefetch } from './lib/dataFetcher';
+import { HeroSection } from './components/layout/HeroSection';
+import { ScrollingBackground } from './components/layout/ScrollingBackground';
 import { useViewportFit } from './hooks/useViewportFit';
+import { fetchData, prefetch } from './lib/dataFetcher';
 import type { AppData } from './types/trading';
 
 const HERO_HEIGHT = 180;
@@ -24,7 +24,8 @@ export default function App() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, #070e1a 80%)',
+          background:
+            'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, #070e1a 80%)',
         }}
       />
 
