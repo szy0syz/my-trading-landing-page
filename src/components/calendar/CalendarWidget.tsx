@@ -1,33 +1,33 @@
 import { Suspense, use, useState } from 'react';
 import { TradingCalendar } from 'react-trading-calendar';
 
-import type { AppData } from '../../types/trading';
+import type { AppData, MonthData } from '../../types/trading';
 
 interface CalendarWidgetProps {
   dataPromise: Promise<AppData>;
 }
 
-function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
-  const data = use(dataPromise);
+const EMPTY_MONTH_DATA: MonthData = { dailyRecords: [], weeklySummaries: [] };
 
-  const now = new Date();
-  const [year, setYear] = useState(now.getFullYear());
-  const [month, setMonth] = useState(now.getMonth() + 1);
+function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
+  const { annualSummaries, monthlySummaries, records } = use(dataPromise).calendar;
+
+  const [{ year, month }, setDate] = useState(() => {
+    const d = new Date();
+    return { year: d.getFullYear(), month: d.getMonth() + 1 };
+  });
 
   const monthKey = `${year}-${String(month).padStart(2, '0')}`;
-  const monthData = data.calendar.records[monthKey] ?? {
-    dailyRecords: [],
-    weeklySummaries: [],
-  };
+  const { dailyRecords, weeklySummaries } = records[monthKey] ?? EMPTY_MONTH_DATA;
 
   return (
     <TradingCalendar
       year={year}
       month={month}
-      dailyRecords={monthData.dailyRecords}
-      weeklySummaries={monthData.weeklySummaries}
-      monthlySummaries={data.calendar.monthlySummaries}
-      annualSummary={data.calendar.annualSummary}
+      dailyRecords={dailyRecords}
+      weeklySummaries={weeklySummaries}
+      monthlySummaries={monthlySummaries[year] ?? []}
+      annualSummary={annualSummaries[year]}
       theme="dark"
       colorScheme="greenUpRedDown"
       title="大飞的实盘交易记录"
@@ -35,10 +35,7 @@ function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
       sectionTitle="交易记录"
       currency="美元 (USD)"
       updateText="每日实时更新"
-      onMonthChange={(y, m) => {
-        setYear(y);
-        setMonth(m);
-      }}
+      onMonthChange={(y, m) => setDate({ year: y, month: m })}
     />
   );
 }

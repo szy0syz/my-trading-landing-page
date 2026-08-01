@@ -1,25 +1,82 @@
 {
   "calendar": {
-    "annualSummary": {
-      "year": 2026,
-      "annualizedReturnRate": 0.404,
-      "totalPnL": 428091
+    "annualSummaries": {
+      "2026": {
+        "year": 2026,
+        "annualizedReturnRate": 0.404,
+        "totalPnL": 428091
+      },
+      "2025": {
+        "year": 2025,
+        "annualizedReturnRate": 0.312,
+        "totalPnL": 315600
+      }
     },
-    "monthlySummaries": [
-      { "month": 1, "pnl": 71737 },
-      { "month": 2, "pnl": 79699 },
-      { "month": 3, "pnl": 25666 },
-      { "month": 4, "pnl": 100346 },
-      { "month": 5, "pnl": 19550 },
-      { "month": 6, "pnl": 30150 },
-      { "month": 7, "pnl": 100943 },
-      { "month": 8, "pnl": 12580 },
-      { "month": 9, "pnl": null },
-      { "month": 10, "pnl": null },
-      { "month": 11, "pnl": null },
-      { "month": 12, "pnl": null }
-    ],
+    "monthlySummaries": {
+      "2026": [
+        { "month": 1, "pnl": 71737 },
+        { "month": 2, "pnl": 79699 },
+        { "month": 3, "pnl": 25666 },
+        { "month": 4, "pnl": 100346 },
+        { "month": 5, "pnl": 19550 },
+        { "month": 6, "pnl": 30150 },
+        { "month": 7, "pnl": 100943 },
+        { "month": 8, "pnl": 12580 },
+        { "month": 9, "pnl": null },
+        { "month": 10, "pnl": null },
+        { "month": 11, "pnl": null },
+        { "month": 12, "pnl": null }
+      ],
+      "2025": [
+        { "month": 1, "pnl": 18200 },
+        { "month": 2, "pnl": 24500 },
+        { "month": 3, "pnl": -9100 },
+        { "month": 4, "pnl": 31200 },
+        { "month": 5, "pnl": 19800 },
+        { "month": 6, "pnl": 27400 },
+        { "month": 7, "pnl": 42100 },
+        { "month": 8, "pnl": -5600 },
+        { "month": 9, "pnl": 16400 },
+        { "month": 10, "pnl": 38900 },
+        { "month": 11, "pnl": 49100 },
+        { "month": 12, "pnl": 62700 }
+      ]
+    },
     "records": {
+      "2025-12": {
+        "dailyRecords": [
+          { "date": "2025-12-01", "pnl": 4200 },
+          { "date": "2025-12-02", "pnl": -1500 },
+          { "date": "2025-12-03", "pnl": 6800 },
+          { "date": "2025-12-04", "pnl": 3100 },
+          { "date": "2025-12-05", "pnl": 8900 },
+          { "date": "2025-12-08", "pnl": 5200 },
+          { "date": "2025-12-09", "pnl": -2100 },
+          { "date": "2025-12-10", "pnl": 7400 },
+          { "date": "2025-12-11", "pnl": 4100 },
+          { "date": "2025-12-12", "pnl": 9300 },
+          { "date": "2025-12-15", "pnl": 3800 },
+          { "date": "2025-12-16", "pnl": -1200 },
+          { "date": "2025-12-17", "pnl": 6100 },
+          { "date": "2025-12-18", "pnl": 5400 },
+          { "date": "2025-12-19", "pnl": -2800 },
+          { "date": "2025-12-22", "pnl": 8100 },
+          { "date": "2025-12-23", "pnl": 4700 },
+          { "date": "2025-12-24", "pnl": 2900 },
+          { "date": "2025-12-25", "pnl": null, "isNonTradingDay": true },
+          { "date": "2025-12-26", "pnl": 3200 },
+          { "date": "2025-12-29", "pnl": 3200 },
+          { "date": "2025-12-30", "pnl": -1450 },
+          { "date": "2025-12-31", "pnl": null, "isNonTradingDay": true }
+        ],
+        "weeklySummaries": [
+          { "weekNumber": 49, "pnl": 21500 },
+          { "weekNumber": 50, "pnl": 23900 },
+          { "weekNumber": 51, "pnl": 11300 },
+          { "weekNumber": 52, "pnl": 19000 },
+          { "weekNumber": 1, "pnl": 4650 }
+        ]
+      },
       "2026-01": {
         "dailyRecords": [
           { "date": "2025-12-29", "pnl": 3200 },

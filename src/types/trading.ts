@@ -15,8 +15,10 @@ export interface MonthData {
 
 /** 日历区域完整数据 */
 export interface CalendarData {
-  annualSummary: AnnualSummary;
-  monthlySummaries: MonthlySummary[];
+  /** 按年份 "YYYY" 检索的年度汇总 */
+  annualSummaries: Record<string, AnnualSummary>;
+  /** 按年份 "YYYY" 检索的月度汇总数组 */
+  monthlySummaries: Record<string, MonthlySummary[]>;
   /** 按 "YYYY-MM" 检索的月度数据字典 */
   records: Record<string, MonthData>;
 }
