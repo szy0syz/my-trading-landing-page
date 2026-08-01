@@ -17,6 +17,18 @@
   .animate-marquee {
     animation: marquee 100s linear infinite;
   }
+
+  /* K线盯盘水平等高线 */
+  .bg-contour-lines {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+    background-size: 100% 84px;
+  }
+
+  /* 径向渐变虚化遮罩 */
+  .mask-radial-fade {
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 95%);
+  }
 }
 
 /* ─── Global reset & base ─── */

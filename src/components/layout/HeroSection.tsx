@@ -19,7 +19,7 @@ export const HeroSection: React.FC = () => {
         </span>
       </h1>
       <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300/90 font-normal tracking-wide">
-        引爆末日杠杆&nbsp;·&nbsp;疯狂吞噬日内波幅
+        引爆末日杠杆&nbsp;·&nbsp;吞噬日内波幅
       </p>
     </section>
   );
