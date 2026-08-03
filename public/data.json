@@ -64,28 +64,23 @@
         "dailyRecords": [
           {
             "date": "2026-01-26",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-01-27",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-01-28",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-01-29",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-01-30",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-01-31",
@@ -99,28 +94,23 @@
           },
           {
             "date": "2026-02-02",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-03",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-04",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-05",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-06",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-07",
@@ -134,8 +124,7 @@
           },
           {
             "date": "2026-02-09",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-10",
@@ -143,18 +132,15 @@
           },
           {
             "date": "2026-02-11",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-12",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-13",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-14",
@@ -173,23 +159,19 @@
           },
           {
             "date": "2026-02-17",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-18",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-19",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-20",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-21",
@@ -203,8 +185,7 @@
           },
           {
             "date": "2026-02-23",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-24",
@@ -216,8 +197,7 @@
           },
           {
             "date": "2026-02-26",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-27",
@@ -256,8 +236,7 @@
         "dailyRecords": [
           {
             "date": "2026-02-23",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-24",
@@ -269,8 +248,7 @@
           },
           {
             "date": "2026-02-26",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-02-27",
@@ -292,8 +270,7 @@
           },
           {
             "date": "2026-03-03",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-03-04",
@@ -455,8 +432,7 @@
           },
           {
             "date": "2026-04-01",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-04-02",
@@ -641,8 +617,7 @@
           },
           {
             "date": "2026-05-04",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-05-05",
@@ -684,8 +659,7 @@
           },
           {
             "date": "2026-05-14",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-05-15",
@@ -711,8 +685,7 @@
           },
           {
             "date": "2026-05-20",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-05-21",
@@ -720,8 +693,7 @@
           },
           {
             "date": "2026-05-22",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-05-23",
@@ -796,8 +768,7 @@
           },
           {
             "date": "2026-06-02",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-06-03",
@@ -1009,8 +980,7 @@
           },
           {
             "date": "2026-07-13",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-07-14",
@@ -1052,8 +1022,7 @@
           },
           {
             "date": "2026-07-23",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-07-24",
@@ -1071,28 +1040,23 @@
           },
           {
             "date": "2026-07-27",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-07-28",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-07-29",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-07-30",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           },
           {
             "date": "2026-07-31",
-            "pnl": null,
-            "isNonTradingDay": true
+            "pnl": null
           }
         ],
         "weeklySummaries": [
