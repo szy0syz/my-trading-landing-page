@@ -207,6 +207,11 @@
             "date": "2026-02-28",
             "pnl": null,
             "isNonTradingDay": true
+          },
+          {
+            "date": "2026-03-01",
+            "pnl": null,
+            "isNonTradingDay": true
           }
         ],
         "weeklySummaries": [
@@ -391,6 +396,29 @@
           {
             "date": "2026-03-31",
             "pnl": -1
+          },
+          {
+            "date": "2026-04-01",
+            "pnl": null
+          },
+          {
+            "date": "2026-04-02",
+            "pnl": 6
+          },
+          {
+            "date": "2026-04-03",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-04-04",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-04-05",
+            "pnl": null,
+            "isNonTradingDay": true
           }
         ],
         "weeklySummaries": [
@@ -416,7 +444,7 @@
           },
           {
             "weekNumber": 14,
-            "pnl": -40
+            "pnl": -34
           }
         ]
       },
@@ -558,6 +586,20 @@
           {
             "date": "2026-04-30",
             "pnl": 161
+          },
+          {
+            "date": "2026-05-01",
+            "pnl": -313
+          },
+          {
+            "date": "2026-05-02",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-05-03",
+            "pnl": null,
+            "isNonTradingDay": true
           }
         ],
         "weeklySummaries": [
@@ -579,7 +621,7 @@
           },
           {
             "weekNumber": 18,
-            "pnl": 485
+            "pnl": 172
           }
         ]
       },
@@ -890,6 +932,29 @@
           {
             "date": "2026-06-30",
             "pnl": 11
+          },
+          {
+            "date": "2026-07-01",
+            "pnl": 29
+          },
+          {
+            "date": "2026-07-02",
+            "pnl": -357
+          },
+          {
+            "date": "2026-07-03",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-07-04",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-07-05",
+            "pnl": null,
+            "isNonTradingDay": true
           }
         ],
         "weeklySummaries": [
@@ -911,7 +976,7 @@
           },
           {
             "weekNumber": 27,
-            "pnl": -141
+            "pnl": -469
           }
         ]
       },
@@ -1057,6 +1122,16 @@
           {
             "date": "2026-07-31",
             "pnl": null
+          },
+          {
+            "date": "2026-08-01",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-02",
+            "pnl": null,
+            "isNonTradingDay": true
           }
         ],
         "weeklySummaries": [

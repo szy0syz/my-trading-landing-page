@@ -77,4 +77,13 @@ body {
   .tc-calendar-root .sm\:w-60 {
     width: 15rem;
   }
+  .tc-calendar-root .sm\:table-cell {
+    display: table-cell;
+  }
+}
+
+@media (min-width: 48rem) {
+  .tc-calendar-root .md\:table-cell {
+    display: table-cell;
+  }
 }

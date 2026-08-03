@@ -1,4 +1,5 @@
 import { CalendarWidget } from './components/calendar/CalendarWidget';
+import { Footer } from './components/layout/Footer';
 import { HeroSection } from './components/layout/HeroSection';
 import { ScrollingBackground } from './components/layout/ScrollingBackground';
 import { fetchData, prefetch } from './lib/dataFetcher';
@@ -26,7 +27,7 @@ export default function App() {
         className="pointer-events-none absolute inset-0 z-1 opacity-50 bg-contour-lines mask-radial-fade"
       />
 
-      <main className="relative z-2 min-h-dvh flex flex-col justify-start pt-6 sm:pt-4 pb-14 overflow-hidden">
+      <main className="relative z-2 min-h-dvh flex flex-col pt-6 sm:pt-4 overflow-hidden">
         {/* 顶部半透明半圆形发散灯光 (Top Spotlight Beam) */}
         <div
           aria-hidden="true"
@@ -54,6 +55,7 @@ export default function App() {
 
         <HeroSection />
         <CalendarWidget dataPromise={dataPromise} />
+        <Footer />
       </main>
     </div>
   );
