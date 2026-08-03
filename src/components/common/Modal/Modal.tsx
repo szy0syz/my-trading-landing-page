@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
+/** 内部 ClassName 合并辅助函数 */
+function cn(...classes: (string | boolean | undefined | null)[]): string {
+  return classes.filter(Boolean).join(' ');
+}
+
 export interface ModalProps {
   /** 控制 Modal 是否打开 (默认为 true) */
   isOpen?: boolean;
@@ -14,7 +19,7 @@ export interface ModalProps {
   title?: React.ReactNode;
   /** Header 右侧 slot 扩展区 (支持任意 ReactNode，例如状态灯、按钮等) */
   headerRight?: React.ReactNode;
-  /** Footer 区域 (支持 string 文本或 ReactNode 自定义渲染) */
+  /** Footer 区域 */
   footer?: React.ReactNode;
   /** Modal 内容区 */
   children?: React.ReactNode;
@@ -28,9 +33,11 @@ export interface ModalProps {
   showControls?: boolean;
   /** 是否以 Modal 弹窗模式渲染 (为 false 时作为嵌入卡片容器渲染，默认为 true) */
   isModal?: boolean;
+  /** ARIA 窗口描述，用于无障碍朗读 */
+  ariaLabel?: string;
 }
 
-export const Modal: React.FC<ModalProps> = ({
+export const ModalComponent: React.FC<ModalProps> = ({
   isOpen = true,
   onClose,
   closeOnOutsideClick = true,
@@ -44,6 +51,7 @@ export const Modal: React.FC<ModalProps> = ({
   overlayClassName = '',
   showControls = true,
   isModal = true,
+  ariaLabel,
 }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -75,7 +83,7 @@ export const Modal: React.FC<ModalProps> = ({
 
   if (!isOpen) return null;
 
-  // 点击遮罩外部关闭 Modal
+  // 点击遮罩外部关闭 Modal (增加 target 严格校验，防止内部拖选文本误触发)
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (closeOnOutsideClick && e.target === overlayRef.current) {
       onClose?.();
@@ -84,62 +92,64 @@ export const Modal: React.FC<ModalProps> = ({
 
   const modalContent = (
     <div
-      className={`w-full ${maxWidth} mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-[#0b1322] text-slate-100 transition-all duration-200 ${className}`}
+      role={isModal ? 'dialog' : undefined}
+      aria-modal={isModal ? true : undefined}
+      aria-label={ariaLabel || (typeof title === 'string' ? title : 'Modal')}
+      className={cn(
+        'w-full mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-[#0b1322] text-slate-100 transition-all duration-200',
+        maxWidth,
+        className
+      )}
     >
       {/* Header 区域 */}
-      <div className="flex items-center justify-between px-3.5 sm:px-6 py-2.5 sm:py-3 border-b border-slate-800/80">
-        <div className="flex items-center space-x-2.5 sm:space-x-3 truncate">
-          {/* macOS 风格三点控制按钮 */}
-          {showControls && (
-            <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
-              {/* 最左侧红色关闭按钮（Hover 时显示 x 图标） */}
-              <button
-                type="button"
-                onClick={onClose}
-                aria-label="关闭"
-                title="关闭"
-                className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f56] hover:bg-[#e0443e] flex items-center justify-center transition-colors shadow-sm cursor-pointer group focus:outline-none"
-              >
-                <svg
-                  className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-[#4c0000] opacity-0 group-hover:opacity-100 transition-opacity"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  viewBox="0 0 24 24"
+      {(title || headerRight || showControls) && (
+        <div className="flex items-center justify-between px-3.5 sm:px-6 py-2.5 sm:py-3 border-b border-slate-800/80">
+          <div className="flex items-center space-x-2.5 sm:space-x-3 truncate">
+            {showControls && (
+              <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => onClose?.()}
+                  aria-label="关闭"
+                  title="关闭"
+                  className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f56] hover:bg-[#e0443e] flex items-center justify-center transition-colors shadow-sm cursor-pointer group focus:outline-none focus:ring-1 focus:ring-red-400/50"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+                  <svg
+                    className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-[#4c0000] opacity-0 group-hover:opacity-100 transition-opacity"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
 
-              {/* 黄色纯装饰圆点 */}
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27c93f] inline-block shadow-sm" />
+              </div>
+            )}
 
-              {/* 绿色纯装饰圆点 */}
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27c93f] inline-block shadow-sm" />
-            </div>
-          )}
+            {title && (
+              <div className="ml-1 sm:ml-2 text-xs sm:text-sm font-medium text-slate-300 tracking-wide truncate">
+                {title}
+              </div>
+            )}
+          </div>
 
-          {/* 左侧 Title */}
-          {title && (
-            <div className="ml-1 sm:ml-2 text-xs sm:text-sm font-medium text-slate-300 tracking-wide truncate">
-              {title}
+          {headerRight && (
+            <div className="flex items-center space-x-2 sm:space-x-4 shrink-0">
+              {headerRight}
             </div>
           )}
         </div>
-
-        {/* 右侧 Slot 扩展区 */}
-        {headerRight && (
-          <div className="flex items-center space-x-2 sm:space-x-4 shrink-0">
-            {headerRight}
-          </div>
-        )}
-      </div>
+      )}
 
       {/* Body 内容区 */}
       <div className="relative">{children}</div>
 
       {/* Footer 区域 */}
-      {footer && (
+      {Boolean(footer) && (
         <div className="py-2 sm:py-2.5 px-4 text-center border-t border-slate-800/40 bg-slate-900/20">
           {typeof footer === 'string' ? (
             <span className="text-xs text-slate-400 font-medium tracking-wide">
@@ -164,10 +174,53 @@ export const Modal: React.FC<ModalProps> = ({
     <div
       ref={overlayRef}
       onClick={handleOverlayClick}
-      className={`fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-black/70 backdrop-blur-sm overflow-y-auto ${overlayClassName}`}
+      className={cn(
+        'fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-black/70 backdrop-blur-sm overflow-y-auto',
+        overlayClassName
+      )}
     >
       {modalContent}
     </div>,
     portalTarget
   );
 };
+
+/* ─── 架构扩展：支持复合组件模式 (Compound Components) ─── */
+
+export interface ModalHeaderProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export const ModalHeader: React.FC<ModalHeaderProps> = ({ children, className = '' }) => (
+  <div className={cn('flex items-center justify-between px-3.5 sm:px-6 py-2.5 sm:py-3 border-b border-slate-800/80', className)}>
+    {children}
+  </div>
+);
+
+export interface ModalBodyProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export const ModalBody: React.FC<ModalBodyProps> = ({ children, className = '' }) => (
+  <div className={cn('relative p-4 sm:p-6', className)}>{children}</div>
+);
+
+export interface ModalFooterProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export const ModalFooter: React.FC<ModalFooterProps> = ({ children, className = '' }) => (
+  <div className={cn('py-2 sm:py-2.5 px-4 text-center border-t border-slate-800/40 bg-slate-900/20', className)}>
+    {children}
+  </div>
+);
+
+/** 结合复合组件与标准组件的 Modal 最终导出 */
+export const Modal = Object.assign(ModalComponent, {
+  Header: ModalHeader,
+  Body: ModalBody,
+  Footer: ModalFooter,
+});

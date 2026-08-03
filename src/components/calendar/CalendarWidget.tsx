@@ -1,7 +1,8 @@
 import { Suspense, use, useState } from 'react';
 import { TradingCalendar } from 'react-trading-calendar';
 
-import type { AppData, MonthData } from '../../types/trading';
+import type { AppData, DailyRecord, MonthData } from '../../types/trading';
+import { DailyDetailModal } from './DailyDetailModal';
 
 interface CalendarWidgetProps {
   dataPromise: Promise<AppData>;
@@ -10,15 +11,21 @@ interface CalendarWidgetProps {
 const EMPTY_MONTH_DATA: MonthData = { dailyRecords: [], weeklySummaries: [] };
 
 function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
-  const { annualSummaries, monthlySummaries, records } = use(dataPromise).calendar;
+  const { annualSummaries, monthlySummaries, records } =
+    use(dataPromise).calendar;
 
   const [{ year, month }, setDate] = useState(() => {
     const d = new Date();
     return { year: d.getFullYear(), month: d.getMonth() + 1 };
   });
 
+  const [selectedRecord, setSelectedRecord] = useState<DailyRecord | null>(
+    null,
+  );
+
   const monthKey = `${year}-${String(month).padStart(2, '0')}`;
-  const { dailyRecords, weeklySummaries } = records[monthKey] ?? EMPTY_MONTH_DATA;
+  const { dailyRecords, weeklySummaries } =
+    records[monthKey] ?? EMPTY_MONTH_DATA;
 
   const handleMonthChange = (nextYear: number, nextMonth: number) => {
     const targetSummaries = monthlySummaries[nextYear] ?? [];
@@ -30,23 +37,35 @@ function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
     }
   };
 
+  const handleDateClick = (record: DailyRecord) => {
+    setSelectedRecord(record);
+  };
+
   return (
-    <TradingCalendar
-      year={year}
-      month={month}
-      dailyRecords={dailyRecords}
-      weeklySummaries={weeklySummaries}
-      monthlySummaries={monthlySummaries[year] ?? []}
-      annualSummary={annualSummaries[year]}
-      theme="dark"
-      colorScheme="greenUpRedDown"
-      title="大飞的实盘交易记录"
-      statusText="实时"
-      sectionTitle="交易记录"
-      currency="美元 (USD)"
-      updateText="每日实时更新"
-      onMonthChange={handleMonthChange}
-    />
+    <>
+      <TradingCalendar
+        year={year}
+        month={month}
+        dailyRecords={dailyRecords}
+        weeklySummaries={weeklySummaries}
+        monthlySummaries={monthlySummaries[year] ?? []}
+        annualSummary={annualSummaries[year]}
+        theme="dark"
+        colorScheme="greenUpRedDown"
+        title="大飞的实盘交易记录"
+        statusText="实时"
+        sectionTitle="交易记录"
+        currency="美元 (USD)"
+        updateText="每日实时更新"
+        onMonthChange={handleMonthChange}
+        onDateClick={handleDateClick}
+      />
+
+      <DailyDetailModal
+        record={selectedRecord}
+        onClose={() => setSelectedRecord(null)}
+      />
+    </>
   );
 }
 
