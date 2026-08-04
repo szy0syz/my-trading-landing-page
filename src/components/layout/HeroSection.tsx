@@ -1,6 +1,6 @@
 import React from 'react';
 
-/** 
+/**
  * 0DTE 衍生品核心量化指标
  */
 const QUANT_METRICS = {
@@ -19,9 +19,7 @@ const QuantBadge: React.FC = () => (
     </span>
     <span className="text-rose-400 font-semibold">0DTE OPTIONS</span>
     <span className="text-slate-600">|</span>
-    <span className="text-slate-300 font-medium">
-      EXTREME VOLATILITY
-    </span>
+    <span className="text-slate-300 font-medium">EXTREME VOLATILITY</span>
     <span className="text-slate-600">•</span>
     <span className="text-slate-400">
       IV <strong className="text-cyan-300 font-medium">180%</strong>
@@ -29,7 +27,7 @@ const QuantBadge: React.FC = () => (
   </div>
 );
 
-/** 
+/**
  * 侧边悬浮 HUD 量化指标卡片
  */
 interface HudCardProps {
@@ -87,7 +85,9 @@ const BackgroundGreeksWave: React.FC = () => (
       aria-hidden="true"
       className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 w-full max-w-4xl opacity-[0.06] text-[10px] sm:text-xs md:text-sm font-mono tracking-widest text-teal-300 select-none overflow-hidden whitespace-nowrap text-center z-0"
     >
-      ∂V/∂t + ½σ²S²(∂²V/∂S²) = rV &nbsp;•&nbsp; Γ Gamma = ∂²V/∂S² &nbsp;•&nbsp; Θ Theta = ∂V/∂t &nbsp;•&nbsp; ϕ Charm = ∂Δ/∂t &nbsp;•&nbsp; τ Vanna = ∂Δ/∂σ &nbsp;•&nbsp; IV = σ(implied)
+      ∂V/∂t + ½σ²S²(∂²V/∂S²) = rV &nbsp;•&nbsp; Γ Gamma = ∂²V/∂S² &nbsp;•&nbsp;
+      Θ Theta = ∂V/∂t &nbsp;•&nbsp; ϕ Charm = ∂Δ/∂t &nbsp;•&nbsp; τ Vanna =
+      ∂Δ/∂σ &nbsp;•&nbsp; IV = σ(implied)
     </div>
 
     <div
@@ -119,7 +119,7 @@ const BackgroundGreeksWave: React.FC = () => (
   </>
 );
 
-/** 
+/**
  * 页面 Hero Slogan 区域
  */
 export const HeroSection: React.FC = () => {
@@ -134,7 +134,7 @@ export const HeroSection: React.FC = () => {
           <HudCard type="risk" />
 
           {/* 主标题 */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-0">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8">
             {/* 末日期权 */}
             <span className="relative group inline-block -translate-x-8 sm:translate-x-0 transition-transform duration-300">
               <span
@@ -149,9 +149,6 @@ export const HeroSection: React.FC = () => {
               >
                 末日期权
               </span>
-              <sup className="hidden md:inline-block ml-1 text-[11px] sm:text-xs font-mono font-semibold tracking-wide text-amber-300/95 border border-amber-400/40 px-1.5 py-0.2 rounded bg-slate-950/90 shadow-sm shadow-amber-950/50 align-top">
-                Γ · Θ · Δ · Vega
-              </sup>
             </span>
 
             {/* 一击翻仓 */}
@@ -175,10 +172,14 @@ export const HeroSection: React.FC = () => {
         {/* 移动端数据卡片 */}
         <div className="lg:hidden mt-3 flex items-center justify-center gap-3 font-mono text-[11px]">
           <div className="px-2.5 py-1 rounded-lg bg-slate-950/70 border border-rose-500/20 text-slate-300">
-            <span className="text-rose-400 font-semibold">Θ Theta Decay:</span> {QUANT_METRICS.thetaDecay}
+            <span className="text-rose-400 font-semibold">Θ Theta Decay:</span>{' '}
+            {QUANT_METRICS.thetaDecay}
           </div>
           <div className="px-2.5 py-1 rounded-lg bg-slate-950/70 border border-emerald-500/20 text-slate-300">
-            <span className="text-emerald-400 font-semibold">Γ Gamma Surge:</span> {QUANT_METRICS.gammaSurge}
+            <span className="text-emerald-400 font-semibold">
+              Γ Gamma Surge:
+            </span>{' '}
+            {QUANT_METRICS.gammaSurge}
           </div>
         </div>
       </div>
