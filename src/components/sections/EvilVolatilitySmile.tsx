@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
 
 /** 
- * 【0DTE 邪恶波动率微笑 (Evil Volatility Smile)】可拖动互动组件
- * 融入 OTM / ATM / ITM 衍生品值程度 (Moneyness) 指标
- * 默认处于 99.9% 极度夸张下沉邪恶大笑形态
+ * 0DTE 隐含波动率微笑 (Evil Volatility Smile) 可拖动交互组件
+ * 包含 Moneyness (OTM/ATM/ITM) 偏斜指标、动态 SVG Bezier 曲线与发光双眼联动
  */
 export const EvilVolatilitySmile: React.FC = () => {
-  // 默认状态设为 66.6 (EVIL SKEW: 66.6%)
+  // 波动率偏斜等级 (0 ~ 100)，默认 66.6%
   const [skewLevel, setSkewLevel] = useState<number>(66.6);
 
-  // 极度下沉曲线：baseCurveY 延伸至 97px，呈极致 U 形抛物线
+  // 抛物线控制点与数值计算
   const baseCurveY = 12 + (skewLevel / 100) * 85; 
   const evilIndex = Math.min(99.9, skewLevel).toFixed(1);
-  const ivSkew = Math.round(100 + (skewLevel / 100) * 380); // 100% ~ 480%
+  const ivSkew = Math.round(100 + (skewLevel / 100) * 380);
 
-  // 动态恶魔眼睛亮度、发光半径与放缩大小
+  // 恶魔眼睛动态视觉参数
   const eyeOpacity = Math.max(0.12, skewLevel / 100);
   const eyeGlow = (skewLevel / 100) * 16;
   const eyeScale = (0.7 + (skewLevel / 100) * 0.4).toFixed(2);
 
   return (
-    <section className="relative z-10 w-full max-w-4xl mx-auto px-4 pt-2 pb-1 flex flex-col items-center justify-center select-none overflow-hidden">
-      {/* 顶部包含 OTM / ATM / ITM 极简微型状态栏 (小屏隐藏，sm及以上显示) */}
+    <section className="relative z-10 w-full max-w-4xl mx-auto px-4 pt-8 pb-1 flex flex-col items-center justify-center select-none overflow-hidden">
+      {/* 顶部 Moneyness 状态栏 (移动端隐藏) */}
       <div className="hidden sm:flex items-center justify-between w-full max-w-2xl text-[10px] sm:text-xs font-mono mb-1 px-2 text-slate-400">
         {/* 左侧：OTM PUT / ITM CALL 偏斜区 */}
         <span className="flex items-center gap-1.5 text-rose-400">
@@ -30,7 +29,7 @@ export const EvilVolatilitySmile: React.FC = () => {
           <span className="text-rose-300 font-bold">({ivSkew}%)</span>
         </span>
 
-        {/* 中间：ATM 平值交割区 & 邪恶指数 */}
+        {/* 中间：ATM 平值区与 Evil Skew 指数 */}
         <span className="text-amber-300 font-semibold tracking-wide flex items-center gap-1">
           <span className="text-xs">😈</span>
           <span>ATM</span>
@@ -49,9 +48,9 @@ export const EvilVolatilitySmile: React.FC = () => {
         </span>
       </div>
 
-      {/* SVG 邪恶微笑曲线画板 (加大纵向容积 105px) */}
+      {/* SVG 波动率微笑画布 */}
       <div className="relative w-full max-w-2xl h-16 sm:h-20 flex items-center justify-center cursor-ew-resize group mt-2">
-        {/* 动态恶魔发光眼睛 (根据拖动弯曲程度 skewLevel 实时变化明暗、尺寸与 Glow 光晕) */}
+        {/* 动态发光双眼 */}
         <div
           className="absolute top-[1.2rem] left-1/2 flex items-center gap-9 pointer-events-none transition-all duration-75"
           style={{
@@ -79,7 +78,6 @@ export const EvilVolatilitySmile: React.FC = () => {
           preserveAspectRatio="none"
         >
           <defs>
-            {/* 邪恶微笑多色发光渐变 (深红 OTM Put -> 霓虹金 ATM -> 翡翠绿 OTM Call) */}
             <linearGradient id="evilSmileGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#f43f5e" />
               <stop offset="25%" stopColor="#e11d48" />
@@ -88,14 +86,13 @@ export const EvilVolatilitySmile: React.FC = () => {
               <stop offset="100%" stopColor="#10b981" />
             </linearGradient>
 
-            {/* 高压 Glow 霓虹滤镜 */}
             <filter id="evilGlow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="4" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
 
-          {/* 夸张大幅度下沉的“邪恶大笑”嘴唇 Bezier 曲线 */}
+          {/* 嘴唇 Bezier 曲线 */}
           <path
             d={`M 30,6 C 110,${baseCurveY + 20} 490,${baseCurveY + 20} 570,6`}
             fill="none"
@@ -106,7 +103,7 @@ export const EvilVolatilitySmile: React.FC = () => {
             className="transition-all duration-75"
           />
 
-          {/* 曲线左端向上勾起的高能尖嘴角落 (Left Evil Smile Tip) */}
+          {/* 左侧嘴角折角 */}
           <path
             d="M 30,6 Q 18,-2 12,18"
             fill="none"
@@ -115,7 +112,7 @@ export const EvilVolatilitySmile: React.FC = () => {
             strokeLinecap="round"
           />
 
-          {/* 曲线右端向上勾起的高能尖嘴角落 (Right Evil Smile Tip) */}
+          {/* 右侧嘴角折角 */}
           <path
             d="M 570,6 Q 582,-2 588,18"
             fill="none"
@@ -125,7 +122,7 @@ export const EvilVolatilitySmile: React.FC = () => {
           />
         </svg>
 
-        {/* 透明 Range 交互滑块：完全靠 cursor-ew-resize 鼠标指示 */}
+        {/* 拖动 Range 滑块 */}
         <input
           type="range"
           min="10"
