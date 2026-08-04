@@ -1,6 +1,6 @@
 {
   "name": "trading-landing-page",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Trading strategy landing page with live PnL calendar",
   "private": true,
   "type": "module",
@@ -14,7 +14,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.17.0",
+      "version": "11.20.0",
       "onFail": "download"
     }
   },

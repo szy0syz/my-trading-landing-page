@@ -97,7 +97,7 @@ export function DailyDetailModal({
             </div>
 
             {tradeGroups && tradeGroups.length > 0 ? (
-              <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+              <div className="space-y-3 max-h-[55vh] sm:max-h-125 overflow-y-auto pr-2 custom-scrollbar">
                 {tradeGroups.map((group) => {
                   const { symbol, details } = parseContractName(
                     group.contractName
