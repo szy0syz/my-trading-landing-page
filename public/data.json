@@ -4,7 +4,7 @@
       "2026": {
         "year": 2026,
         "annualizedReturnRate": 0,
-        "totalPnL": -1025
+        "totalPnL": -1017
       }
     },
     "monthlySummaries": {
@@ -39,7 +39,7 @@
         },
         {
           "month": 8,
-          "pnl": null
+          "pnl": 8
         },
         {
           "month": 9,
@@ -1264,6 +1264,217 @@
           },
           {
             "weekNumber": 31,
+            "pnl": 0
+          }
+        ]
+      },
+      "2026-08": {
+        "dailyRecords": [
+          {
+            "date": "2026-07-27",
+            "pnl": null
+          },
+          {
+            "date": "2026-07-28",
+            "pnl": null
+          },
+          {
+            "date": "2026-07-29",
+            "pnl": null
+          },
+          {
+            "date": "2026-07-30",
+            "pnl": null
+          },
+          {
+            "date": "2026-07-31",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-01",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-02",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-03",
+            "pnl": 8,
+            "tradesCount": 6
+          },
+          {
+            "date": "2026-08-04",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-05",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-06",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-07",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-08",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-09",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-10",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-11",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-12",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-13",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-14",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-15",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-16",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-17",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-18",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-19",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-20",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-21",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-22",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-23",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-24",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-25",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-26",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-27",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-28",
+            "pnl": null
+          },
+          {
+            "date": "2026-08-29",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-30",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-08-31",
+            "pnl": null
+          },
+          {
+            "date": "2026-09-01",
+            "pnl": null
+          },
+          {
+            "date": "2026-09-02",
+            "pnl": null
+          },
+          {
+            "date": "2026-09-03",
+            "pnl": null
+          },
+          {
+            "date": "2026-09-04",
+            "pnl": null
+          },
+          {
+            "date": "2026-09-05",
+            "pnl": null,
+            "isNonTradingDay": true
+          },
+          {
+            "date": "2026-09-06",
+            "pnl": null,
+            "isNonTradingDay": true
+          }
+        ],
+        "weeklySummaries": [
+          {
+            "weekNumber": 31,
+            "pnl": 0
+          },
+          {
+            "weekNumber": 32,
+            "pnl": 8
+          },
+          {
+            "weekNumber": 33,
+            "pnl": 0
+          },
+          {
+            "weekNumber": 34,
+            "pnl": 0
+          },
+          {
+            "weekNumber": 35,
+            "pnl": 0
+          },
+          {
+            "weekNumber": 36,
             "pnl": 0
           }
         ]
@@ -9151,6 +9362,77 @@
             "quantity": -1,
             "tradePrice": 2.54,
             "fifoPnlRealized": 2.416878
+          }
+        ]
+      }
+    ],
+    "2026-08-03": [
+      {
+        "contractName": "DIA 07AUG26 533 C",
+        "trades": [
+          {
+            "orderTime": "09:35:32",
+            "tradeDate": "2026-08-03",
+            "buySell": "BUY",
+            "openClose": "O",
+            "quantity": 1,
+            "tradePrice": 2.28,
+            "fifoPnlRealized": 0
+          },
+          {
+            "orderTime": "09:38:12",
+            "tradeDate": "2026-08-03",
+            "buySell": "SELL",
+            "openClose": "C",
+            "quantity": -1,
+            "tradePrice": 2.42,
+            "fifoPnlRealized": 12.171125
+          }
+        ]
+      },
+      {
+        "contractName": "SCHW 21AUG26 107 C",
+        "trades": [
+          {
+            "orderTime": "09:44:01",
+            "tradeDate": "2026-08-03",
+            "buySell": "BUY",
+            "openClose": "O",
+            "quantity": 1,
+            "tradePrice": 1.9,
+            "fifoPnlRealized": 0
+          },
+          {
+            "orderTime": "09:47:58",
+            "tradeDate": "2026-08-03",
+            "buySell": "SELL",
+            "openClose": "C",
+            "quantity": -1,
+            "tradePrice": 2,
+            "fifoPnlRealized": 7.90299
+          }
+        ]
+      },
+      {
+        "contractName": "CORZ 14AUG26 23 C",
+        "trades": [
+          {
+            "orderTime": "11:43:49",
+            "tradeDate": "2026-08-03",
+            "buySell": "BUY",
+            "openClose": "O",
+            "quantity": 1,
+            "tradePrice": 1.35,
+            "fifoPnlRealized": 0
+          },
+          {
+            "orderTime": "11:57:16",
+            "tradeDate": "2026-08-03",
+            "buySell": "SELL",
+            "openClose": "C",
+            "quantity": -1,
+            "tradePrice": 1.25,
+            "fifoPnlRealized": -12.072465
           }
         ]
       }

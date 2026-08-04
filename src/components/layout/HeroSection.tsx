@@ -19,12 +19,8 @@ const QuantBadge: React.FC = () => (
     </span>
     <span className="text-rose-400 font-semibold">0DTE OPTIONS</span>
     <span className="text-slate-600">|</span>
-    <span className="text-slate-400">
-      <strong className="text-amber-300 font-medium">Θ Theta</strong> DECAY
-    </span>
-    <span className="text-slate-600">•</span>
-    <span className="text-slate-400">
-      <strong className="text-emerald-400 font-medium">Γ Gamma</strong> SPIKE
+    <span className="text-slate-300 font-medium">
+      EXTREME VOLATILITY
     </span>
     <span className="text-slate-600">•</span>
     <span className="text-slate-400">
@@ -60,7 +56,7 @@ const HudCard: React.FC<HudCardProps> = ({ type }) => {
             isRisk ? 'bg-rose-500' : 'bg-emerald-400'
           }`}
         />
-        {isRisk ? 'RISK · Θ Theta DECAY' : 'YIELD · Γ Gamma SURGE'}
+        {isRisk ? 'RISK PROFILE' : 'YIELD PROFILE'}
       </div>
 
       <div className="text-slate-300 text-[11px] mt-0.5 whitespace-nowrap">
@@ -154,7 +150,7 @@ export const HeroSection: React.FC = () => {
                 末日期权
               </span>
               <sup className="hidden md:inline-block ml-1 text-[11px] sm:text-xs font-mono font-semibold tracking-wide text-amber-300/95 border border-amber-400/40 px-1.5 py-0.2 rounded bg-slate-950/90 shadow-sm shadow-amber-950/50 align-top">
-                Γ · Θ · ϕ · τ
+                Γ · Θ · Δ · Vega
               </sup>
             </span>
 
