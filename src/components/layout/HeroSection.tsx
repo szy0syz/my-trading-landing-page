@@ -128,7 +128,7 @@ const BackgroundGreeksWave: React.FC = () => (
  */
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative z-10 flex flex-col items-center justify-center py-6 sm:py-10 px-4 text-center select-none max-w-7xl mx-auto w-full">
+    <section className="relative z-10 flex flex-col items-center justify-center py-5 sm:py-8 px-4 text-center select-none max-w-7xl mx-auto w-full">
       <QuantBadge />
 
       <div className="relative w-full flex flex-col items-center justify-center">
