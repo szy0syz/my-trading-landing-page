@@ -1,6 +1,6 @@
 {
   "name": "trading-landing-page",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Trading strategy landing page with live PnL calendar",
   "private": true,
   "type": "module",
