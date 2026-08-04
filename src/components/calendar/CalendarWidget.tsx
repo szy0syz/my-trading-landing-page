@@ -11,8 +11,9 @@ interface CalendarWidgetProps {
 const EMPTY_MONTH_DATA: MonthData = { dailyRecords: [], weeklySummaries: [] };
 
 function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
-  const { annualSummaries, monthlySummaries, records } =
-    use(dataPromise).calendar;
+  const appData = use(dataPromise);
+  const { annualSummaries, monthlySummaries, records } = appData.calendar;
+  const dailyTrades = appData.dailyTrades;
 
   const [{ year, month }, setDate] = useState(() => {
     const d = new Date();
@@ -41,6 +42,10 @@ function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
     setSelectedRecord(record);
   };
 
+  const selectedTradeGroups = selectedRecord?.date
+    ? dailyTrades?.[selectedRecord.date]
+    : undefined;
+
   return (
     <>
       <TradingCalendar
@@ -63,6 +68,7 @@ function CalendarWidgetInner({ dataPromise }: CalendarWidgetProps) {
 
       <DailyDetailModal
         record={selectedRecord}
+        tradeGroups={selectedTradeGroups}
         onClose={() => setSelectedRecord(null)}
       />
     </>

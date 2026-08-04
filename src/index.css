@@ -29,6 +29,30 @@
     mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 95%);
     -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 95%);
   }
+
+  /* 优雅暗色微型滚动条 */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.2);
+    border-radius: 9999px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.4);
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.2) transparent;
+  }
 }
 
 /* ─── Global reset & base ─── */
